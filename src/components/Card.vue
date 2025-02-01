@@ -13,14 +13,22 @@
                         border border-black rounded-2xl flex items-center justify-content
                         ">
                 <div class="border border-black w-full h-full bg-red-500 rounded-xl flex items-center justify-center">
-                    <fruit />
+                    <fruit :fruit="data.fruit" />
                 </div>
             </div>
         </div>
     </article>
 </template>
 <script setup>
-import Fruit from './Fruit.vue';
+import { defineProps } from 'vue'
+import Fruit from './Fruit.vue'
+
+defineProps({
+    data: {
+        type: Object,
+        required: true
+    }
+})
 
 // bg-[url('./../assets/card-back.png')] bg-center bg-cover object-cover
 </script>

@@ -9,7 +9,7 @@ import { computed, defineProps } from 'vue'
 const props = defineProps({
     fruit: {
         type: String,
-        default: 'coconut'
+        default: "apple"
     }
 })
 
@@ -28,12 +28,9 @@ const fruits = {
     "lemon": { x: 18, y: 2 },
     "strawberry": { x: 27, y: 0 },
     "coconut": { x: 22, y: 4 },
-
 }
 
 const getFruit = computed(() => {
-
-    console.log(props.fruit)
 
     const x = fruits[props.fruit].x * w
     const y = fruits[props.fruit].y * h
