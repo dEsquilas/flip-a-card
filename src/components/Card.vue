@@ -1,6 +1,10 @@
 <template>
-    <article class="flip-card perspective-1000 relative width-1/3 aspect-[12/16] group">
-        <div class="flip-card-inner w-full h-full transform-3d transition-[transform] duration-800 rotate-y-180">
+    <article class="flip-card perspective-1000 relative width-1/3 aspect-[12/16] cursor-pointer group">
+        <div class="flip-card-inner w-full h-full transform-3d transition-[transform] duration-800"
+            :class="{
+                       'rotate-y-180': data.isFlipped,
+                       'group-hover:rotate-y-30': !data.isFlipped }"
+        >
             <div class="flip-card-front absolute w-full h-full backface-hidden
 
                         border-1 border-black bg-white p-4 rounded-2xl flex items-center justify-content
@@ -30,5 +34,4 @@ defineProps({
     }
 })
 
-// bg-[url('./../assets/card-back.png')] bg-center bg-cover object-cover
 </script>

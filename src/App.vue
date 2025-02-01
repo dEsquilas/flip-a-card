@@ -1,7 +1,9 @@
 <template>
-    <section class="bg-green-700 w-dvw h-dvh grid grid-cols-4 gap-4 p-4">
-        <Card :data="card" v-for="(card, index) in cards" :key="index" />
-    </section>
+    <div class="flex items-center justify-center w-dvw h-dvh bg-green-700 ">
+        <section class="w-full grid grid-cols-4 auto-rows-min gap-4 p-4">
+            <Card :data="card" v-for="(card, index) in cards" :key="index" @click="flipCard(card)" />
+        </section>
+    </div>
 </template>
 
 <script setup>
@@ -14,6 +16,7 @@ const fruits = [
 
 const cards = ref([])
 const tapeLength = 12
+let lastCard = null
 
 let availablePosition = []
 
@@ -22,6 +25,30 @@ const getEmptyPosition = (positions) => {
     const position = positions[randomIndex]
     positions.splice(randomIndex, 1)
     return position
+}
+
+const flipCard = (card) => {
+
+    card.isFlipped = true
+
+    if(lastCard === null){
+        lastCard = card
+    }
+    else{
+        if(lastCard.fruit === card.fruit){
+            lastCard = null
+        }
+        else{
+            setTimeout(() => {
+                lastCard.isFlipped = false
+                card.isFlipped = false
+                lastCard = null
+            }, 500)
+        }
+    }
+
+
+
 }
 
 const init = () => {
@@ -40,8 +67,8 @@ const init = () => {
 
         fruits.splice(fruits.indexOf(fruit), 1)
 
-        cards.value.push({ fruit: fruit, position: c1 })
-        cards.value.push({ fruit: fruit, position: c2 })
+        cards.value.push({ fruit: fruit, position: c1, isFlipped: false })
+        cards.value.push({ fruit: fruit, position: c2, isFlipped: false })
     }
 
     cards.value.sort((a, b) => a.position - b.position)
