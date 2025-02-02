@@ -1,5 +1,5 @@
 <template>
-    <article class="flip-card perspective-1000 relative width-1/3 aspect-[12/16] cursor-pointer group">
+    <article class="flip-card perspective-1000 relative width-[300px] aspect-[12/16] cursor-pointer group">
         <div class="flip-card-inner w-full h-full transform-3d transition-[transform] duration-800"
             :class="{
                        'rotate-y-180': data.isFlipped,
