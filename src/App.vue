@@ -29,6 +29,8 @@ const getEmptyPosition = (positions) => {
 
 const flipCard = (card) => {
 
+    if(card.isFlipped) return
+
     card.isFlipped = true
 
     if(lastCard === null){
