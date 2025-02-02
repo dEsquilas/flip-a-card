@@ -1,5 +1,7 @@
 # flip-a-card
 
+A simple flip card game built with Vue.js and Tailwind CSS.
+
 ## Project setup
 ```
 pnpm install
@@ -19,6 +21,3 @@ pnpm run build
 ```
 pnpm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
